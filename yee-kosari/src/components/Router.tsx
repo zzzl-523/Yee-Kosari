@@ -1,17 +1,28 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import HomePage from "../pages/Home";
+import NotificationPage from "../pages/Notification";
+import PostListPage from "../pages/Posts";
+import PostDetailPage from "../pages/Posts/detail";
+import PostEditPage from "../pages/Posts/edit";
+import ProfilePage from "../pages/Profile";
+import ProfileEditPage from "../pages/Profile/edit";
+import SearchPage from "../pages/Search";
+import LoginPage from "../pages/Users/login";
+import SignupPage from "../pages/Users/signup";
 export default function Router() {
   return (
     <Routes>
-      <Route path="/" element={<h1>home</h1>} />
-      <Route path="/posts" element={<h1>posts</h1>} />
-      <Route path="/posts/:id" element={<h1>post detail</h1>} />
-      <Route path="/posts/edit/:id" element={<h1>post edit</h1>} />
-      <Route path="/profile" element={<h1>profile</h1>} />
-      <Route path="/profile/edit" element={<h1>profile edit</h1>} />
-      <Route path="/search" element={<h1>search</h1>} />
-      <Route path="/notification" element={<h1>notification</h1>} />
-      <Route path="/users/login" element={<h1>login</h1>} />
-      <Route path="/users/signup" element={<h1>signup</h1>} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/posts" element={<PostListPage />} />
+      <Route path="/posts/:id" element={<PostDetailPage />} />
+      <Route path="/posts/edit/:id" element={<PostEditPage />} />
+      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/profile/edit" element={<ProfileEditPage />} />
+      <Route path="/search" element={<SearchPage />} />
+      <Route path="/notification" element={<NotificationPage />} />
+      <Route path="*" element={<Navigate replace to="/" />} />
+      <Route path="/users/login" element={<LoginPage />} />
+      <Route path="/users/signup" element={<SignupPage />} />
     </Routes>
   );
 }
